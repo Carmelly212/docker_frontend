@@ -1,0 +1,12 @@
+FROM node:alpine
+
+WORKDIR '/app'
+
+COPY package.json .
+# RUN apk add --no-cache build-base gcc autoconf automake libtool zlib-dev libpng-dev nasm
+RUN npm install
+# RUN chown $USER:$USER /app/node_modules
+
+COPY . . 
+
+CMD ["npm", "run" ,"start"]
